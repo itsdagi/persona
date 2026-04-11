@@ -1,0 +1,22 @@
+.section { background:var(--bg2); }
+.grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem; }
+.card { background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:1.8rem;transition:all var(--t-norm); }
+.card:hover { border-color:var(--accent);transform:translateY(-3px); }
+.cardHeader { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:.8rem; }
+.cardHeader h3 { font-size:1.15rem; }
+.dept { font-size:.85rem;color:var(--accent);margin-top:.2rem; }
+.tags { display:flex;gap:.5rem;flex-wrap:wrap; }
+.desc { font-size:.9rem;margin-bottom:1rem; }
+.reqs { margin-bottom:1.5rem; }
+.reqs h4 { font-size:.85rem;margin-bottom:.5rem;color:var(--text2); }
+.reqs li { font-size:.85rem;color:var(--text3);padding:.2rem 0 .2rem 1rem;position:relative; }
+.reqs li::before { content:'›';position:absolute;left:0;color:var(--accent);font-weight:700; }
+.overlay { position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:center;animation:fadeIn .3s ease; }
+.modal { width:90%;max-width:600px;max-height:90vh;overflow-y:auto;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;position:relative;animation:fadeInUp .4s var(--ease); }
+.modal h3 { margin-bottom:1.5rem; }
+.close { position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:var(--r-full);background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--t-fast); }
+.close:hover { background:var(--danger);color:#fff; }
+.upload { border:2px dashed var(--border);border-radius:var(--r-md);padding:1rem;text-align:center;cursor:pointer;position:relative;font-size:.85rem;color:var(--text3);transition:border-color var(--t-fast); }
+.upload:hover { border-color:var(--accent); }
+.upload input { position:absolute;inset:0;opacity:0;cursor:pointer; }
+@media(max-width:768px) { .grid{grid-template-columns:1fr} }

@@ -1,0 +1,198 @@
+.about {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+/* LEFT */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heading {
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
+  font-weight: 300;
+}
+
+/* CEO Card */
+.ceoCard {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-md);
+  margin-top: 0.5rem;
+  transition: all var(--t-norm);
+}
+
+.ceoCard:hover {
+  border-color: var(--border-accent);
+  border-left-color: var(--accent-bright);
+  box-shadow: var(--shadow-accent);
+}
+
+.ceoAvatar {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  overflow: hidden;
+}
+
+.ceoAvatar svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ceoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ceoName {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.ceoRole {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: var(--font-sub);
+}
+
+.ceoQuote {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text2);
+  font-style: italic;
+}
+
+/* RIGHT */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.visual {
+  position: relative;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.visualBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.badgeYear {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.badgeLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-family: var(--font-sub);
+}
+
+/* Values */
+.values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.valueCard {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: all var(--t-norm);
+}
+
+.valueCard:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-card-h);
+}
+
+.valueIcon {
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.valueTitle {
+  font-family: var(--font-sub);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.01em;
+}
+
+.valueDesc {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--text3);
+}
+
+@media (max-width: 1000px) {
+  .inner { grid-template-columns: 1fr; gap: 4rem; }
+}
+
+@media (max-width: 600px) {
+  .values { grid-template-columns: 1fr; }
+}

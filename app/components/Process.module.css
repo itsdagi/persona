@@ -1,0 +1,225 @@
+.process {
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+/* Step Navigation */
+.stepNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stepBtn {
+  display: grid;
+  grid-template-columns: 36px 90px 1fr 20px;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.1rem 1.2rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--t-norm);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.stepBtn::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform var(--t-norm);
+}
+
+.stepBtn:hover {
+  border-color: var(--border-h);
+  background: var(--glass-light);
+}
+
+.stepActive {
+  border-color: var(--border-accent);
+  background: var(--accent-dim);
+}
+
+.stepActive::before {
+  transform: scaleY(1);
+}
+
+.stepNum {
+  font-family: var(--font-sub);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.stepPhase {
+  font-family: var(--font-sub);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+}
+
+.stepActive .stepPhase {
+  color: var(--accent);
+}
+
+.stepTitle {
+  font-family: var(--font-sub);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.stepChevron {
+  color: var(--text3);
+  transition: transform var(--t-norm);
+  flex-shrink: 0;
+}
+
+.stepActive .stepChevron {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+/* Panel */
+.panel {
+  display: none;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.panelActive {
+  display: flex;
+  animation: fadeInUp 0.5s var(--ease) forwards;
+}
+
+.panelTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panelNum {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--border);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.panelDuration {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  font-family: var(--font-sub);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--r-full);
+  padding: 0.35rem 0.9rem;
+}
+
+.panelPhase {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-family: var(--font-sub);
+}
+
+.panelTitle {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+.panelDesc {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--text2);
+}
+
+.panelDetail {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.panelDetailLabel {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text3);
+  font-family: var(--font-sub);
+  margin-bottom: 0.75rem;
+}
+
+.panelDetailItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.panelDetailItem {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--r-sm);
+  font-family: var(--font-sub);
+}
+
+.panelViz {
+  margin-top: 0.5rem;
+  height: 120px;
+  border-radius: var(--r-sm);
+  background: #08080c;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+@media (max-width: 1000px) {
+  .stepBtn {
+    grid-template-columns: 28px 1fr 20px;
+  }
+  .stepPhase { display: none; }
+}
+
+@media (max-width: 800px) {
+  .panel { padding: 1.5rem; }
+  .panelNum { font-size: 2.5rem; }
+}

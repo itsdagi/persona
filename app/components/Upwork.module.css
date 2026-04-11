@@ -1,0 +1,23 @@
+.section { position:relative;overflow:hidden; }
+.bgGlow { position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,0.02),transparent 50%,rgba(0,255,136,0.02));pointer-events:none; }
+.content { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;position:relative; }
+.badge { display:inline-flex;align-items:center;gap:.8rem;padding:.8rem 1.5rem;background:var(--green-dim);border:1px solid rgba(0,255,136,0.15);border-radius:var(--r-full);margin-bottom:1.5rem; }
+.dot { width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulseScale 2s ease infinite; }
+.badge span:last-child { font-size:.85rem;font-weight:600;color:var(--green); }
+.info h2 { margin-bottom:1rem; }
+.info > p { font-size:.95rem;margin-bottom:1.5rem; }
+.stats { display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem; }
+.stat { padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);text-align:center;transition:all var(--t-norm); }
+.stat:hover { border-color:var(--green); }
+.statNum { font-family:var(--font-heading);font-size:2rem;font-weight:700;color:var(--green);display:block;line-height:1; }
+.statLabel { font-size:.8rem;color:var(--text3);margin-top:.3rem;display:block; }
+.testimonials h3 { margin-bottom:1.5rem; }
+.tCard { padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:1rem;transition:all var(--t-norm); }
+.tCard:hover { border-color:var(--gold); }
+.tText { font-style:italic;font-size:.92rem;margin-bottom:1rem;color:var(--text2); }
+.tAuthor { display:flex;align-items:center;gap:.8rem; }
+.tAvatar { width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:.85rem;color:#fff;flex-shrink:0; }
+.tInfo h4 { font-size:.9rem; }
+.tInfo p { font-size:.78rem; }
+.tStars { color:var(--gold);font-size:.8rem;letter-spacing:2px; }
+@media(max-width:900px) { .content{grid-template-columns:1fr} }

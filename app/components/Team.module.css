@@ -1,0 +1,11 @@
+.grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem; }
+.card { background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:2rem 1.5rem;text-align:center;transition:all var(--t-norm); }
+.card:hover { border-color:var(--accent);transform:translateY(-5px);box-shadow:var(--shadow-md); }
+.avatar { width:90px;height:90px;border-radius:50%;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:#fff;border:2px solid var(--border);transition:border-color var(--t-norm); }
+.card:hover .avatar { border-color:var(--accent); }
+.card h3 { font-size:1.05rem;margin-bottom:.2rem; }
+.role { font-size:.85rem;color:var(--accent);margin-bottom:.8rem;font-weight:500;display:block; }
+.bio { font-size:.82rem;margin-bottom:1rem; }
+.socials { display:flex;gap:.5rem;justify-content:center; }
+.social { width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--text3);transition:all var(--t-fast);text-decoration:none; }
+.social:hover { border-color:var(--accent);color:var(--accent); }

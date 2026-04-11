@@ -1,0 +1,2 @@
+.wrap { position:fixed;bottom:2rem;right:2rem;z-index:900;animation:floatCta 3s ease-in-out infinite; }
+@media(max-width:768px) { .wrap{bottom:1.2rem;right:1.2rem} }

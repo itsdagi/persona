@@ -1,0 +1,202 @@
+.testimonials {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.mainCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--r-xl);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--t-norm);
+}
+
+.mainCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright), transparent);
+}
+
+.quoteIcon {
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  line-height: 0.6;
+  color: var(--accent);
+  opacity: 0.2;
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.quote {
+  font-family: var(--font-sub);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text);
+  font-weight: 400;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.authorAvatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 2px solid var(--accent-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.authorName {
+  font-family: var(--font-sub);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.authorRole {
+  font-size: 0.78rem;
+  color: var(--text2);
+  font-family: var(--font-sub);
+}
+
+.authorProject {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-family: var(--font-sub);
+  font-weight: 600;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.testimonialBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: all var(--t-norm);
+  cursor: pointer;
+  text-align: left;
+}
+
+.testimonialBtn:hover {
+  border-color: var(--border-h);
+  background: var(--bg-card-h);
+}
+
+.testimonialActive {
+  border-color: var(--accent-border);
+  background: var(--accent-dim);
+}
+
+.btnAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text2);
+  flex-shrink: 0;
+  transition: all var(--t-norm);
+}
+
+.testimonialActive .btnAvatar {
+  background: var(--accent);
+  color: #0a0a0c;
+}
+
+.btnInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.btnName {
+  font-family: var(--font-sub);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.btnProject {
+  font-size: 0.7rem;
+  color: var(--text3);
+  font-family: var(--font-sub);
+}
+
+/* Rating */
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.ratingText {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text3);
+  font-family: var(--font-sub);
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .inner { grid-template-columns: 1fr; }
+  .sidebar { flex-direction: row; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.5rem; }
+  .testimonialBtn { min-width: 200px; }
+}
+
+@media (max-width: 600px) {
+  .mainCard { padding: 1.8rem 1.4rem; }
+  .quoteIcon { font-size: 5rem; }
+}

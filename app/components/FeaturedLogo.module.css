@@ -1,0 +1,106 @@
+.wrapper {
+  padding: 8rem 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.logoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: 280px;
+  border-radius: var(--r-2xl);
+  overflow: visible;
+  /* Bouncy 3D float inside container */
+  animation: floatBounce 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: default;
+}
+
+.logoContainer::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  transform: translateZ(-20px);
+  pointer-events: none;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
+}
+
+.featuredLogoImg {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(255, 101, 36, 0.4));
+  transform: translateZ(50px);
+}
+
+.glowUnderlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 101, 36, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+.textOverlay {
+  margin-top: 2.5rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(90deg, var(--text) 0%, var(--accent) 50%, var(--text) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-family: var(--font-sub);
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.6em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper { padding: 4rem 0; }
+  .inner { min-height: 300px; }
+  .logoContainer { max-width: 220px; height: 220px; }
+}

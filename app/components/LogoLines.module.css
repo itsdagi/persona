@@ -1,0 +1,89 @@
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: radial-gradient(circle at center, rgba(0,212,255,0.05) 0%, transparent 70%);
+}
+
+.svg {
+  width: 90%;
+  height: auto;
+  max-width: 320px;
+  filter: drop-shadow(0 0 15px rgba(0,212,255,0.1));
+}
+
+.mainPath {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawLine 3s ease-in-out forwards alternate infinite;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes drawLine {
+  0% { stroke-dashoffset: 600; opacity: 0; }
+  10% { opacity: 1; }
+  80% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+.line {
+  stroke: var(--accent);
+  stroke-width: 0.8;
+  opacity: 0.15;
+  stroke-dasharray: 4, 4;
+}
+
+.dot {
+  opacity: 0;
+  animation: dotIn 0.5s ease-out forwards;
+}
+.dot:nth-child(7) { animation-delay: 1s; }
+.dot:nth-child(8) { animation-delay: 1.5s; }
+.dot:nth-child(9) { animation-delay: 2s; }
+.dot:nth-child(10) { animation-delay: 2.5s; }
+
+@keyframes dotIn { 
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.centerDot {
+  animation: pulseScale 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px var(--gold-glow));
+}
+
+.text {
+  font-family: var(--font-heading);
+  font-size: 8px;
+  fill: var(--text3);
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.scanLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.2), transparent);
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  from { top: 0%; }
+  to { top: 100%; }
+}
