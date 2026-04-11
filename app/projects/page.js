@@ -27,8 +27,8 @@ const STATUS_COLORS = {
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [viewMode, setViewMode] = useState('grid');
-  const [ref] = useReveal();
+  const [viewMode, setViewMode] = useState('tiktok');
+  const [ref, vis] = useReveal();
   const [activeProject, setActiveProject] = useState(null);
 
   const filtered = activeCategory === 'All'
@@ -121,7 +121,7 @@ export default function ProjectsPage() {
 
             {/* Grid */}
             {viewMode === 'grid' ? (
-              <div className={`${styles.grid} stagger`}>
+              <div className={`${styles.grid} stagger ${vis ? 'visible' : ''}`}>
                 {filtered.map((project) => (
                   <ProjectCard key={project.id} project={project} onClick={() => setActiveProject(project)} />
                 ))}

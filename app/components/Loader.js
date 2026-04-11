@@ -16,7 +16,7 @@ export default function Loader() {
     <div className={styles.loader} role="status" aria-label="Loading Persona Studio">
       <div className={styles.inner}>
         <div className={styles.logoMark}>
-          <span className={styles.logoP}>P</span>
+          <img src="/logo.png" alt="Persona Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
         <div className={styles.progressBar}>
           <div className={styles.progressFill} />

@@ -21,15 +21,17 @@
 }
 
 .logoMark {
-  width: 64px;
-  height: 64px;
-  border: 2px solid var(--accent);
-  border-radius: 10px;
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: loaderPulse 1.2s ease-in-out infinite;
-  box-shadow: 0 0 30px var(--accent-glow);
+  animation: logoBreathe 2s ease-in-out infinite;
+}
+
+@keyframes logoBreathe {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255,101,36,0.2)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(255,101,36,0.8)); }
 }
 
 .logoP {

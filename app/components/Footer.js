@@ -31,7 +31,9 @@ export default function Footer() {
           <div className={styles.topInner}>
             <div className={styles.brand}>
               <div className={styles.logo}>
-                <span className={styles.logoMark}>P</span>
+                <span className={styles.logoMark} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src="/logo.png" alt="Persona" style={{ width: '32px', height: '32px', objectFit: 'contain', filter: 'brightness(1.5)' }} />
+                </span>
                 <span className={styles.logoText}>PERSONA</span>
               </div>
               <p className={styles.tagline}>

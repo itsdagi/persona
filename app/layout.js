@@ -1,5 +1,6 @@
 import './globals.css';
 import AppProvider from './context/AppContext';
+import ChatBot from './components/ChatBot';
 
 export const metadata = {
   title: 'Persona — Architecture Studio | Designing Spaces with Identity',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
       <body>
         <AppProvider>
           {children}
+          <ChatBot />
         </AppProvider>
       </body>
     </html>

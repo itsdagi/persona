@@ -1,5 +1,6 @@
 'use client';
 import { useApp } from '../context/AppContext';
+import Link from 'next/link';
 import styles from './CartSidebar.module.css';
 
 export default function CartSidebar() {
@@ -38,7 +39,7 @@ export default function CartSidebar() {
                 <span>Total</span>
                 <span>${cartTotal}</span>
               </div>
-              <button className="btn btn-p" style={{ width: '100%', justifyContent: 'center' }}>Checkout →</button>
+              <a href="/checkout" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setCartOpen(false)}>Checkout →</a>
             </div>
           </>
         )}

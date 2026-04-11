@@ -1,0 +1,19 @@
+.article { background: var(--bg); padding-bottom: 5rem; min-height: 100vh; }
+.hero { position: relative; padding: calc(var(--nav-h) + 6rem) 0 6rem; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: 60vh; }
+.heroBg { position: absolute; inset: 0; filter: brightness(0.6); z-index: 0; }
+.bg1 { background: linear-gradient(135deg, #0a1a18, #0f2820 50%, #081510); }
+.bg2 { background: linear-gradient(135deg, #1a1020, #200f30 50%, #0f0a1a); }
+.bg3 { background: linear-gradient(135deg, #1a1510, #2a2015 50%, #151008); }
+.bg4 { background: linear-gradient(135deg, #0a1020, #0f1830 50%, #080a1a); }
+.heroInner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+.tag { align-self: flex-start; padding: 0.4rem 1rem; border: 1px solid rgba(255,101,36,0.3); border-radius: var(--r-full); font-size: 0.8rem; font-family: var(--font-sub); color: var(--accent); background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); }
+.title { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; font-family: var(--font-heading); color: var(--text); line-height: 1.1; letter-spacing: -0.03em; }
+.meta { display: flex; align-items: center; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: 1rem; font-family: var(--font-sub); font-size: 0.9rem; color: var(--text2); }
+.author { display: flex; align-items: center; gap: 0.8rem; font-weight: 600; color: var(--text); }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #000; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; }
+.content { max-width: 800px; margin: 0 auto; padding-top: 4rem; }
+.lead { font-size: 1.4rem; line-height: 1.6; color: var(--text); font-weight: 500; margin-bottom: 3rem; border-left: 3px solid var(--accent); padding-left: 1.5rem; }
+.bodyText { display: flex; flex-direction: column; gap: 1.8rem; font-size: 1.05rem; line-height: 1.8; color: var(--text2); }
+.bodyText h2 { font-size: 2rem; color: var(--text); font-family: var(--font-heading); margin-top: 2rem; margin-bottom: 0.5rem; }
+.bodyText p { letter-spacing: 0.01em; }
+.bodyText blockquote { font-size: 1.8rem; font-family: var(--font-heading); font-style: italic; color: var(--accent); text-align: center; margin: 3rem 0; padding: 2rem; background: rgba(255,101,36,0.05); border-radius: var(--r-lg); border: 1px solid rgba(255,101,36,0.2); }

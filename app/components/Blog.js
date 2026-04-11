@@ -1,5 +1,6 @@
 'use client';
 import { useReveal } from '../hooks';
+import Link from 'next/link';
 import { blogs } from '../data';
 import styles from './Blog.module.css';
 
@@ -17,23 +18,25 @@ export default function Blog() {
         </div>
         <div className={`${styles.grid} stagger ${vis ? 'visible' : ''}`}>
           {blogs.map(b => (
-            <article key={b.id} className={styles.card}>
-              <div className={styles.thumb}>
-                <div className={`${styles.thumbBg} ${bgClass[b.bg]}`} />
-              </div>
-              <div className={styles.body}>
-                <span className="tag">{b.category}</span>
-                <h3>{b.title}</h3>
-                <p>{b.excerpt}</p>
-                <div className={styles.meta}>
-                  <div className={styles.author}>
-                    <div className={styles.authorAvatar}>NT</div>
-                    <span>Nahom Tassew</span>
-                  </div>
-                  <span>{b.date} · {b.readTime}</span>
+            <Link key={b.id} href={`/blog/${b.id}`} style={{ textDecoration: 'none' }}>
+              <article className={styles.card}>
+                <div className={styles.thumb}>
+                  <div className={`${styles.thumbBg} ${bgClass[b.bg]}`} />
                 </div>
-              </div>
-            </article>
+                <div className={styles.body}>
+                  <span className="tag">{b.category}</span>
+                  <h3>{b.title}</h3>
+                  <p>{b.excerpt}</p>
+                  <div className={styles.meta}>
+                    <div className={styles.author}>
+                      <div className={styles.authorAvatar}>NT</div>
+                      <span>Nahom Tassew</span>
+                    </div>
+                    <span>{b.date} · {b.readTime}</span>
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>

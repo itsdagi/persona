@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import { useReveal } from '../hooks';
+import { useApp } from '../context/AppContext';
 import styles from './page.module.css';
 
 const CATEGORIES = ['All', '3D Models', 'Blueprints', 'Materials', 'Textures', 'Furniture', 'Renders'];
@@ -21,7 +22,7 @@ const ITEMS = [
 
 export default function MarketplacePage() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [cart, setCart] = useState([]);
+  const { cart, addToCart, cartTotal, setCartOpen } = useApp();
   const [addedId, setAddedId] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [ref] = useReveal();
@@ -30,15 +31,11 @@ export default function MarketplacePage() {
     ? ITEMS
     : ITEMS.filter((i) => i.category === activeCategory);
 
-  const addToCart = (item) => {
-    if (!cart.find((c) => c.id === item.id)) {
-      setCart((prev) => [...prev, item]);
-    }
+  const handleAddToCart = (item) => {
+    addToCart({ id: item.id, name: item.title, price: item.price });
     setAddedId(item.id);
     setTimeout(() => setAddedId(null), 1500);
   };
-
-  const cartTotal = cart.reduce((acc, i) => acc + i.price, 0);
 
   return (
     <>
@@ -87,7 +84,7 @@ export default function MarketplacePage() {
                     <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
                   </svg>
                   {cart.length} item{cart.length !== 1 ? 's' : ''} · ${cartTotal}
-                  <button className={styles.checkoutBtn}>Checkout</button>
+                  <button className={styles.checkoutBtn} onClick={() => setCartOpen(true)}>View Cart</button>
                 </div>
               )}
             </div>
@@ -99,7 +96,7 @@ export default function MarketplacePage() {
                   key={item.id} 
                   item={item} 
                   onView={() => setSelectedItem(item)}
-                  onAdd={(e) => { e.stopPropagation(); addToCart(item); }} 
+                  onAdd={(e) => { e.stopPropagation(); handleAddToCart(item); }} 
                   added={addedId === item.id} 
                   inCart={cart.some(c => c.id === item.id)} 
                 />
@@ -131,7 +128,7 @@ export default function MarketplacePage() {
                   <div className={styles.modalPrice}>${selectedItem.price}</div>
                   <button
                     className={`btn btn-primary btn-sm ${cart.some(c => c.id === selectedItem.id) ? styles.btnDisabled : ''}`}
-                    onClick={(e) => { e.stopPropagation(); addToCart(selectedItem); }}
+                    onClick={(e) => { e.stopPropagation(); handleAddToCart(selectedItem); }}
                     disabled={cart.some(c => c.id === selectedItem.id)}
                   >
                     {addedId === selectedItem.id ? 'Added' : cart.some(c => c.id === selectedItem.id) ? 'In Cart' : 'Add to Cart'}

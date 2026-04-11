@@ -138,27 +138,28 @@
 }
 
 .card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: var(--r-xl);
   overflow: hidden;
   cursor: pointer;
-  transition: all var(--t-norm);
+  transition: all 0.4s var(--ease);
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-accent);
-  transform: translateY(-4px);
+  border-color: rgba(255, 101, 36, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 101, 36, 0.05);
+  transform: translateY(-8px);
 }
 
 .cardViz {
   position: relative;
-  height: 180px;
-  background: #06060a;
+  height: 220px;
+  background: #040406;
   overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .cardTag {
