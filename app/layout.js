@@ -1,6 +1,7 @@
 import './globals.css';
 import AppProvider from './context/AppContext';
 import ChatBot from './components/ChatBot';
+import CartSidebar from './components/CartSidebar';
 
 export const metadata = {
   title: 'Persona — Architecture Studio | Designing Spaces with Identity',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body>
         <AppProvider>
           {children}
+          <CartSidebar />
           <ChatBot />
         </AppProvider>
       </body>

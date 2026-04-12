@@ -112,10 +112,28 @@
   font-family: var(--font-sub);
 }
 
+.viewCartBtn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--r-full);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-sub);
+  transition: all var(--t-fast);
+}
+
+.viewCartBtn:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
 .checkoutBtn {
   background: var(--accent);
   color: #0a0a0c;
-  border: none;
+  border: 1px solid var(--accent);
   border-radius: var(--r-full);
   padding: 0.3rem 0.85rem;
   font-size: 0.78rem;

@@ -39,7 +39,7 @@ export default function CartSidebar() {
                 <span>Total</span>
                 <span>${cartTotal}</span>
               </div>
-              <a href="/checkout" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setCartOpen(false)}>Checkout →</a>
+              <Link href="/checkout" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setCartOpen(false)}>Checkout →</Link>
             </div>
           </>
         )}

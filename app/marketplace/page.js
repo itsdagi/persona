@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import { useReveal } from '../hooks';
@@ -26,6 +27,7 @@ export default function MarketplacePage() {
   const [addedId, setAddedId] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [ref] = useReveal();
+  const router = useRouter();
 
   const filtered = activeCategory === 'All'
     ? ITEMS
@@ -84,7 +86,8 @@ export default function MarketplacePage() {
                     <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
                   </svg>
                   {cart.length} item{cart.length !== 1 ? 's' : ''} · ${cartTotal}
-                  <button className={styles.checkoutBtn} onClick={() => setCartOpen(true)}>View Cart</button>
+                  <button className={styles.viewCartBtn} onClick={() => setCartOpen(true)}>View Cart</button>
+                  <button className={styles.checkoutBtn} onClick={() => router.push('/checkout')}>Checkout →</button>
                 </div>
               )}
             </div>
