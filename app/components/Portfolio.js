@@ -80,7 +80,6 @@ export default function Portfolio() {
           </h2>
           <p>A curated selection of our most significant built works and design explorations.</p>
         </div>
-
         <div className={`${styles.grid} stagger`}>
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.id} project={project} featured={i === 0} />

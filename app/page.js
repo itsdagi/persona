@@ -2,6 +2,7 @@
 import Loader from './components/Loader';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import FeaturedModel from './components/FeaturedModel';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
 import Services from './components/Services';
@@ -17,6 +18,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <FeaturedModel />
         <About />
         <Portfolio />
         <Services />
