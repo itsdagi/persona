@@ -1,23 +1,86 @@
 .featuredModel {
   background: var(--bg);
   position: relative;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.modelWrapper {
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 50vw;
+  background: radial-gradient(ellipse at center, rgba(255, 101, 36, 0.15) 0%, transparent 60%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wrapper {
+  position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  z-index: 2;
+}
+
+.hudElements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.crosshair {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: var(--accent);
+  border-style: solid;
+  opacity: 0.6;
+}
+
+.tl { top: -10px; left: -10px; border-width: 2px 0 0 2px; }
+.tr { top: -10px; right: -10px; border-width: 2px 2px 0 0; }
+.bl { bottom: -10px; left: -10px; border-width: 0 0 2px 2px; }
+.br { bottom: -10px; right: -10px; border-width: 0 2px 2px 0; }
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: 0.3;
+  animation: scanLine 8s linear infinite;
+}
+
+.hudText {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  font-family: var(--font-sub);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  opacity: 0.7;
 }
 
 .modelContainer {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 50%; /* 2:1 super wide ratio for a futuristic feel */
   background: transparent;
-  border-radius: calc(var(--r-md) - 0.3rem);
-  overflow: hidden;
+  /* Use CSS mask to fade out the edges completely */
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
 }
 
 .modelContainer iframe {
@@ -29,8 +92,23 @@
   border: none;
 }
 
+@media (max-width: 1024px) {
+  .modelContainer {
+    padding-bottom: 65%;
+  }
+}
+
 @media (max-width: 640px) {
   .modelContainer {
-    padding-bottom: 75%;
+    padding-bottom: 90%;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
   }
+}
+
+@keyframes scanLine {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { top: 100%; opacity: 0; }
 }
